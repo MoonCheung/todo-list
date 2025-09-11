@@ -31,7 +31,10 @@ export const useTodoStore = create<todoState & todoAction>((set) => ({
     set((state) => ({
       todos: state.todos.map((todo) => {
         if(todo.id === todoId) {
-          return {...todo, isCompleted: true}
+          return {
+            ...todo,
+            isCompleted: !todo.isCompleted
+          }
         }
 
         return todo
